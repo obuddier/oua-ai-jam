@@ -84,19 +84,5 @@ public class CharacterMovement : MonoBehaviour
         if (isGrounded && verticalVelocity < 0) {
             verticalVelocity = 0;
         }
-
-        if(Input.GetKeyDown(KeyCode.F)) //F tuþu ile objelerle etkileþime geçme
-        {
-            Ray ray= mainCamera.ViewportPointToRay(new Vector3(0.5f,0.5f,0));
-            RaycastHit hitiki;
-            if(Physics.Raycast(ray, out hitiki))
-            {
-                if(hitiki.collider.TryGetComponent(out IInteractable interactObject))
-                {
-                    interactObject.Interact();
-                }
-            }
-
-        }
     }
 }
