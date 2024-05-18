@@ -625,13 +625,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  mouseSensitivity: 100
+  mouseSensitivity: 600
   canJump: 1
-  jumpForce: 10
-  groundCheckDistance: 0.1
+  jumpForce: 0.15
+  groundCheckDistance: 1.1
   groundMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8
 --- !u!1 &852100719
 GameObject:
   m_ObjectHideFlags: 0
@@ -1012,7 +1012,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87a0a4bdb0383564394db2ee3770fe0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anahtar: {fileID: 2097086921}
 --- !u!65 &2097086923
 BoxCollider:
   m_ObjectHideFlags: 0
