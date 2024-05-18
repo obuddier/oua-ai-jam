@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Interaction : MonoBehaviour,IInteractable
 {
-    [SerializeField] GameObject anahtar;
     public void Interact()
     {
         PickUpKey();
@@ -13,5 +12,7 @@ public class Interaction : MonoBehaviour,IInteractable
  private void PickUpKey()
     {
         Destroy(gameObject);
+        
+        //kapýyý aç()
     }
 }
