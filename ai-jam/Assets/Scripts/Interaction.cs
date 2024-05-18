@@ -5,6 +5,11 @@ using UnityEngine;
 
 public class Interaction : MonoBehaviour
 {
+    private void Start()
+    {
+        PlayerPrefs.DeleteAll();
+    }
+
     private void Update()
     {
         RaycastHit hit;
