@@ -35,3 +35,4 @@ sysinfo.txt
 Assets/StreamingAssets/crashlytics-build.properties
 *.log
 *.mp4
+ai-jam/UserSettings/EditorUserSettings.asset
