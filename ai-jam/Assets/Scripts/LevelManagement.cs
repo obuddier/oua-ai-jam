@@ -20,13 +20,19 @@ public class LevelManagement : MonoBehaviour
         if(Input.GetKey(KeyCode.Escape))
         {
             pausePanel.SetActive(true);
-            //oyun durmalý
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
+            Time.timeScale = 0;
+            //oyun durmalÄ±
         }
     }
 
     public void ResumeLevel()
     {
         pausePanel.SetActive(false);
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+        Time.timeScale = 1;
         //oyun akmaya devam etmeli
     }
 
