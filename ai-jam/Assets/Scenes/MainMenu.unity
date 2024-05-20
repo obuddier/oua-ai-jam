@@ -153,6 +153,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   credits: {fileID: 1400188820}
+  gameName: {fileID: 1037150051}
 --- !u!4 &1565755
 Transform:
   m_ObjectHideFlags: 0

@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class MenuScript : MonoBehaviour
 {
     public GameObject credits;
+    public GameObject gameName;
 
     private void Start()
     {
@@ -27,11 +28,13 @@ public class MenuScript : MonoBehaviour
     public void ShowCredits()
     {
         credits.SetActive(true);
+        gameName.SetActive(false);
     }
 
     public void HideCredits()
     {
         credits.SetActive(false);
+        gameName.SetActive(true);
     }
 
 }
