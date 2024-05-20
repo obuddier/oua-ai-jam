@@ -24,10 +24,14 @@ public class Interaction : MonoBehaviour
                         PlayerPrefs.SetString("Keys", PlayerPrefs.GetString("Keys") + hit.collider.name + ",");
                         Destroy(hit.collider.gameObject);
                     }
+                    
+                    if(hit.collider.name == "MainDoor")
+                    {
+                        hit.collider.GetComponent<Animator>().SetTrigger("Open");
+                        hit.collider.GetComponent<BoxCollider>().enabled = false;
+                    }
                 }
             }
-            
-            Debug.DrawRay(transform.position, hit.transform.position, Color.red);
         }
     }
 }
