@@ -71,7 +71,7 @@ public class ExitTrigger : MonoBehaviour
 
     public IEnumerator GoToMenu()
     {
-        yield return new WaitForSeconds(15);
+        yield return new WaitForSeconds(18);
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
         blackScreen.alpha = .999f;
