@@ -23,11 +23,11 @@ public class Enemy : MonoBehaviour
         
         if (Vector3.Distance(transform.position, target.position) < 10.0f)
         {
-            agent.speed = 6f;
+            agent.speed = 10f;
         }
         else
         {
-            agent.speed = 8f;
+            agent.speed = 12f;
         }
         
         if(agent.velocity.magnitude > 0.5f)

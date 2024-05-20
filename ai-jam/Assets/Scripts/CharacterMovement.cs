@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CharacterMovement : MonoBehaviour
 {
@@ -20,6 +22,8 @@ public class CharacterMovement : MonoBehaviour
     private float verticalVelocity = 0.0f;
     private float gravity = -9.81f;
     
+    private AudioSource audioSource;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -28,6 +32,7 @@ public class CharacterMovement : MonoBehaviour
         
         mainCamera = Camera.main;
         controller = GetComponent<CharacterController>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -56,12 +61,23 @@ public class CharacterMovement : MonoBehaviour
         cameraRotation.x = Mathf.Clamp(cameraRotation.x, -90.0f, 90.0f);
         mainCamera.transform.localEulerAngles = cameraRotation;
         
+        if(controller.velocity.magnitude > 0.1f && !audioSource.isPlaying)
+        {
+            audioSource.Play();
+        }
+        else if(controller.velocity.magnitude < 0.1f)
+        {
+            audioSource.Stop();
+        }
+        
         // Sprint
         if(Input.GetKey(KeyCode.LeftShift) && vertical > 0.0f) {
-            speed = 15.0f;
+            speed = 10.0f;
+            audioSource.pitch = 1.5f;
             mainCamera.fieldOfView = Mathf.Lerp(mainCamera.fieldOfView, 85.0f, 16f * Time.deltaTime);
         } else {
             speed = 5.0f;
+            audioSource.pitch = 1.0f;
             mainCamera.fieldOfView = Mathf.Lerp(mainCamera.fieldOfView, 60.0f, 16f * Time.deltaTime);
         }
         
@@ -83,6 +99,14 @@ public class CharacterMovement : MonoBehaviour
         // Reset vertical velocity if grounded
         if (isGrounded && verticalVelocity < 0) {
             verticalVelocity = 0;
+        }
+    }
+
+    private void OnControllerColliderHit(ControllerColliderHit hit)
+    {
+        if (hit.gameObject.name == "Finish")
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
     }
 }
