@@ -16,7 +16,7 @@ public class MenuScript : MonoBehaviour
 
     public void NewGame()
     {
-        SceneManager.LoadScene("GameMap");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     public void ExitGame()
