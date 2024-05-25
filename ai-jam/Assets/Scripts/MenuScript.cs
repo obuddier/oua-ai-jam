@@ -8,10 +8,12 @@ public class MenuScript : MonoBehaviour
 {
     public GameObject credits;
     public GameObject gameName;
+    public GameObject howToPlayPanel;
 
     private void Start()
     {
         credits.SetActive(false);
+        howToPlayPanel.SetActive(false);
     }
 
 
@@ -34,6 +36,17 @@ public class MenuScript : MonoBehaviour
     public void HideCredits()
     {
         credits.SetActive(false);
+        gameName.SetActive(true);
+    }
+
+    public void ShowHowToPlay()
+    {
+        howToPlayPanel.SetActive(true);
+        gameName.SetActive(false);
+    }
+    public void HideHowToPlay()
+    {
+        howToPlayPanel.SetActive(false);
         gameName.SetActive(true);
     }
 
